@@ -112,7 +112,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.
 
 /* ── HERO ── */
 .hero { text-align: center; }
-.hero .wrap { min-height: 78vh; min-height: 74svh; display: flex; flex-direction: column; padding-top: clamp(1rem, 3vw, 2.5rem); }
+.hero .wrap { min-height: 82vh; min-height: 82svh; display: flex; flex-direction: column; padding-top: clamp(1rem, 3vw, 2.5rem); }
 .hero h1 { font-size: var(--fs-hero); color: var(--cream); margin-bottom: 0.3em; }
 /* Long-form logo image in place of the text wordmark */
 .hero-logo { margin: 0 auto 0.3em; line-height: 0; }
@@ -157,28 +157,21 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.
 .btn-block:hover { transform: translateY(-2px); filter: brightness(1.05); }
 .btn-block[hidden] { display: none; }
 
-/* Live pulse — signals she's streaming right now */
-#live-btn {
-  position: relative;
-  animation: live-pulse 2s ease-in-out infinite;
-}
+/* Live dot — signals she's streaming right now */
+#live-btn { position: relative; }
 #live-btn::before {
   content: ""; display: inline-block;
   width: 0.6em; height: 0.6em; margin-right: 0.55em;
-  border-radius: 50%; background: var(--bg-purple);
+  border-radius: 50%; background: #e54f46;
   vertical-align: middle;
   animation: live-dot 2s ease-in-out infinite;
-}
-@keyframes live-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--red) 55%, transparent); }
-  50%      { box-shadow: 0 0 0 10px color-mix(in srgb, var(--red) 0%, transparent); }
 }
 @keyframes live-dot {
   0%, 100% { opacity: 1; transform: scale(1); }
   50%      { opacity: 0.35; transform: scale(0.8); }
 }
 @media (prefers-reduced-motion: reduce) {
-  #live-btn, #live-btn::before { animation: none; }
+  #live-btn::before { animation: none; }
 }
 .portrait {
   width: 100%; aspect-ratio: 4 / 5;
@@ -325,6 +318,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.
 }
 @media (max-width: 560px) {
   .wrap { padding-inline: var(--pad-x-mobile); }
+  .hero .wrap { min-height: 74svh; }
   .site-header { padding-inline: var(--pad-x-mobile); flex-direction: column; gap: 1rem; }
   .nav-right { flex-wrap: wrap; justify-content: center; }
   .community-card .foot { text-align: center; }
